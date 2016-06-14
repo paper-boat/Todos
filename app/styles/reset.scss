@@ -1,0 +1,18 @@
+%reset{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family: 'myriad normal',sans-serif;
+  font-size: 16px;
+  @extend %reset;
+}
+ul,li,h1,h2,h3,h4,h5,h6,p,pre{
+  @extend %reset;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}

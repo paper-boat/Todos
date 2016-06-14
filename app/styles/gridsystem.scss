@@ -1,0 +1,38 @@
+@import "vars";
+$rules:(
+  large:$large,
+  medium:$medium,
+  small:$small,
+);
+%col{
+  float: left;
+  position: relative;
+}
+@each $rule in map_keys($rules){
+  @for $i from 1 through $grid{
+    .#{$rule}-#{$i}{
+      @extend %col;
+    }
+  }
+}
+@each $rule in map_keys($rules){
+  @media screen and ( max-width: map_get($rules,$rule)){
+    @for $i from 1 through $grid{
+      .#{$rule}-#{$i}{
+        width: percentage($i/$grid);
+      }
+    }
+  }
+}
+@for $i from 5 through 10{
+  .with-#{$i}-col .col{
+    width: percentage(1/$i);
+  }
+}
+@media screen and ( max-width:$small ){
+  @for $i from 5 through 10{
+    .with-#{$i}-col .col{
+      width: 100%;
+    }
+  }
+}

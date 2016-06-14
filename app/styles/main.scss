@@ -1,0 +1,432 @@
+// bower:scss
+// endbower
+@import 'vars';
+@import 'font';
+@import 'reset';
+@import 'gridsystem';
+
+%clear{
+  content: '';
+  display: block;
+  clear: both;
+}
+%hiddentext{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 1px;
+  height:1px;
+  overflow: hidden;
+}
+#globalnav{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  min-height:44px;
+  background: fade-out(black,0.2);
+  z-index: 10;
+}
+#globalnav .gn-content{
+  max-width: 980px;
+  margin:0 auto;
+  padding:0 22px;
+}
+#globalnav{
+  .gn-list{
+    margin: 0 -18px;
+    height:44px;
+    text-align: justify;
+    &::after{
+      content: '';
+      width: 100%;
+      display: inline-block;
+      height:0;
+    }
+    @media screen and (max-width:$small) {
+        display: none;
+        .gn-header{
+          display: block;
+        }
+    }
+  }
+  .gn-list .gn-item{
+    height:44px;
+    display: inline-block;
+    span{
+      @extend %hiddentext;
+    }
+    .gn-link{
+      padding: 0 10px;
+      display: block;
+      height: 44px;
+    }
+  }
+  $nav-list : (
+  mac:31px,
+  apple:20px,
+  ipad:30px,
+  iphone:48px,
+  watch:44px,
+  tv:20px,
+  music:40px,
+  support:57px,
+  search:20px,
+  bag:18px,
+  );
+  @each $nav in map_keys($nav-list){
+    .gn-#{$nav} a{
+      width: map_get($nav-list,$nav);
+      background: url($images-path + $nav + '.svg') center center no-repeat;
+    }
+  }
+}
+#globalnav{
+  .gn-header{
+    display: none;
+    height:48px;
+    @media screen and (max-width: $small) {
+      display: block;
+    }
+    .gn-item{
+      width: 48px;
+      height:48px;
+    }
+    .gn-button{
+      /*position: absolute;*/
+      width:20px;
+      height:44px;
+      top:0;
+      left:0;
+      position: absolute;
+      left:16px;
+      .header-top{
+        display: block;
+        width:17px;
+        height:1px;
+        background:#fff;
+        left:16px;
+        z-index: 1;
+        top:15px;
+        position: absolute;
+
+      }
+      .header-bottom{
+        display: block;
+        width:17px;
+        height:1px;
+        background:#fff;
+        position: absolute;
+        bottom:20px;
+        left:16px;
+      }
+    }
+    .gn-apple{
+      width:40px;
+      height:48px;
+      position: absolute;
+      margin: auto;
+      top:0;
+      left:0;
+      right:0;
+      background: url($images-path+'apple.svg') center center no-repeat;
+    }
+    .gn-bag{
+      width:20px;
+      height:44px;
+      position: absolute;
+      top:0;
+      right:0;
+      background: url($images-path+'bag.svg') center center no-repeat;
+    }
+  }
+}
+/*banner开始*/
+.banner{
+  width:1349px;
+  height:650px;
+  display: block;
+  margin:0 auto;
+  position: relative;
+  margin-top:49px;
+  /*overflow: hidden;*/
+  .iphone_6s{
+     width:1349px;
+     height:606px;
+     position: relative;
+     bottom:0;
+     .hero-content{
+      width:1349px;
+      height:606px;
+      margin:0 auto;
+  @media screen and(max-width:$large){    
+      .copy{
+      width:740px;
+      height:105px;
+      display:block;
+      vertical-align:middle;
+      margin:0 auto;
+      position: relative;
+      top:70px;
+      .copy-inner{
+      width:740px;
+      height:105px;
+      .product-pro{
+        width:205px;
+        height:40px;
+        display: block;
+        margin:0 auto;
+        margin-bottom:5px;
+        background:url($images-path+'iphone_6s_medium.png');
+         
+       }
+      .product-text{
+        width:740px;
+        height:36px;
+        margin-bottom:16px;
+        font-size: 32px;
+        font-weight: 300;
+        font-family: 'myriad thin';
+        display: block;
+      } 
+       }
+        }
+      .hero-wrapper{
+         .hero-image-inner{
+          width:1400px;
+          height:389px;
+          display: inline-block;
+          margin:0 auto;
+          float: left;
+          margin-right:56px;
+          margin-bottom:-64px;
+          position: absolute;
+          bottom:100px;
+          left:0;
+          background:url($images-path+'iphone_6s_medium.jpg');
+         }
+      }  
+     } 
+    @media screen and(max-width:$small){
+        background:url($images-path+'iphone_6s_small.jpg');
+    }       
+  }
+/*  @media screen and(max-width:$small){
+    background:url($images-path+'iphone_6s_small.jpg');
+  }  */ 
+}  
+  
+
+
+
+
+/*中间部分*/
+ %clear{
+   clear:both;
+   content:'';
+   display: block;
+ }
+
+  $medium:1068px;
+  $small:736px;
+  $large:2560px;
+.aside  li{
+      float: left;
+      height:200px;
+      width:25%;
+      @media screen and(max-width:$medium){
+        width:50%;
+      }
+      @media screen and(max-width:$small){
+        width:100%;
+      }
+     span{
+     width:1px;
+     display: block;
+     position: absolute;
+     top:0;
+     left:0;
+     height:1px;
+     overflow: hidden;
+   }
+    }
+.aside a {
+  display: block;
+  height:200px;
+  border-right:3px solid #fff;
+  border-bottom:5px solid #fff;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: 360px 200px;
+  @media screen and(max-width: $medium){
+            background-size:630px 200px;
+  }
+  @media screen and(max-width: $small){
+            background-size:736px 200px;
+  }
+}
+    $items : iphone_6s,apple_tv,macbook,accessories;
+    @for $i from 1 through 4{
+      .aside li:nth-child(#{$i}) a{
+    background-image: url("../images/"+nth($items,$i)+'_large.jpg');
+    @media screen and(max-width: $medium){
+    background-image: url("../images/"+nth($items,$i)+'_medium.jpg');
+    }
+    @media screen and(max-width:$small){
+    background-image: url('../images/'+nth($items,$i)+'_small.jpg');
+
+    }
+  }
+}
+
+ .products{
+  min-height:65px;
+  margin-top:50px;
+  margin:0 auto;
+  display: inline-block;
+  width:100%;
+  position: relative;
+  /*box-sizing: border-box;*/
+    &::after{
+      @extend %clear;
+  }
+   #redcross-banner{
+     width:520px;
+     margin:0 auto;
+     position: absolute;
+     padding-top:20px;
+     padding-bottom:20px;
+     border-bottom:1px solid #D6D6D6;
+   }
+ }
+ .products li{
+  height:65px;
+  float: left;
+  box-sizing: border-box;
+ };
+ .products li:nth-child(1){
+   background:#fff;
+   display: block;
+   text-align: center;
+   display: block;
+   line-height: 65px; 
+ }
+ .products li:nth-child(1) img{
+  display: block;
+  margin:0 auto;
+  padding:none;
+  line-height: 65px;
+ };
+  .products li:nth-child(2){
+  float: left;
+  font-size:18px;
+  text-align: center;
+  line-height: 65px;
+  border-left:1px solid #d6d6d6;
+  display: inline-block;
+ };
+ .products li:nth-child(2) a{
+    color:#08c;
+    font-size:18px;
+    float:right;
+    text-decoration: none;
+ }; 
+.products li:nth-child(2) span{
+    font-size:18px;
+    float:right;
+    color:red;
+    left:0;
+ }; 
+ 
+%colum{
+     position: relative;
+     float:left;
+};
+ $rules : (
+  large:1600px,
+  medium:980px,
+  small:765px,
+);
+$num:12;
+@each  $rule in map_keys($rules){
+    @for $i from 1 through $num{
+      .#{$rule}-#{$i}{
+    @extend %colum;
+    width: percentage($i/$num);
+  }
+    }
+} 
+ @each  $rule in map_keys($rules){
+    @media screen and(max-width:map_get($rules,$rule)){
+      @for $i from 1 through $num {
+        .#{$rule}-#{$i}{
+    width: percentage($i/$num);
+       }  
+      }   
+    }
+} 
+
+
+/*暂停*/
+/*papple*/
+.footer{
+  width:100%;
+  height:auto;
+  background:#F2F2F2;
+  float: left;
+  clear:both;
+  content:'';
+  display: block;
+  .ac-gf-directory-column{
+    width:195px;
+    height:210px;
+    float: left;
+  }
+  .col h3 .jia{
+    display:none;
+    float: right;
+    margin-right:10px;
+  }
+  .col h3{
+   
+  }
+  a{
+    text-decoration: none;
+    color:#666666;
+  }
+}
+}
+
+
+
+
+@for $i from 5 through 10{
+  .with-#{$i}-col {
+    &::after{
+    @extend %clear;
+    }
+  }
+  .with-#{$i}-col .col{
+       @extend %colum;
+       width:percentage(1/$i);
+  }
+}
+
+@media screen and(max-width: map_get($rules,'small')){
+     @for $i from 5 through 10 {
+        .with-#{$i}-col .col{ 
+          /*@extend   %colum;*/
+          float: left;
+          width:100%;
+          ul{
+            display: none;
+          }
+          h3{
+            border-bottom:1px solid #F2F2F2;
+           .jia{
+             display: block;
+           }
+          }
+        }
+     }
+}
